@@ -6,9 +6,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="business" />
         <module name="app-service" />
+        <module name="business" />
         <module name="domain" />
+        <module name="app-proxy" />
       </profile>
     </annotationProcessing>
   </component>

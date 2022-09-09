@@ -1,5 +1,6 @@
 package org.example.cardgame.usecase;
 
+import co.com.sofka.domain.generic.DomainEvent;
 import org.example.cardgame.command.CrearJuegoCommand;
 import org.example.cardgame.events.JuegoCreado;
 import org.example.cardgame.events.JugadorAgregado;
@@ -16,6 +17,7 @@ import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
 
 import java.util.HashMap;
+import java.util.function.Predicate;
 
 import static org.mockito.Mockito.when;
 
@@ -23,58 +25,61 @@ import static org.mockito.Mockito.when;
 @ExtendWith(MockitoExtension.class)
 class CrearJuegoUseCaseTest {
 
-    @Mock
-    private ListaDeCartaService service;
+  @Mock
+  private ListaDeCartaService listaDeCartaService;
 
     @InjectMocks
-    private CrearJuegoUseCase useCase;
+    private CrearJuegoUseCase useaCase;
 
     @Test
-    void crearJuegoHappyPass(){
-        //Arange
-        var juegoId = JuegoId.of("JuegoId-001");
-        var jugadores = new HashMap<String,String>();
-        jugadores.put("jugador-001","Prueba #1");
-        jugadores.put("jugador-002","Prueba #2");
-        var comando = new CrearJuegoCommand(juegoId.value(),jugadores,"jugador-001");
+    void crearJuego(){
 
-        when(service.obtenerCartasDeMarvel()).thenReturn(cartasJuego());
+        //arrange
+        var command = new CrearJuegoCommand();
+        command.setJuegoId("IdJuego01");
+        command.setJugadores(new HashMap<>());
+        command.getJugadores().put("jugador01","Juanes");
+        command.getJugadores().put("jugador02","Madona");
+        command.setJugadorPrincipalId("Id01");
 
-        StepVerifier.create(useCase.apply(Mono.just(comando)))
-                .expectNextMatches(eventoDominio->{
-                    var evento = (JuegoCreado) eventoDominio;
-                    return "JuegoId-001".equals(evento.aggregateRootId())
-                            && "jugador-001".equals(evento.getJugadorPrincipal().value());
+        when(listaDeCartaService.obtenerCartasDeMarvel()).thenReturn(history());
+
+        StepVerifier.create(useaCase.apply(Mono.just(command)))
+
+                .expectNextMatches(new Predicate<DomainEvent>() {
+                    @Override
+                    public boolean test(DomainEvent domainEvent) {
+                        var event = (JuegoCreado) domainEvent;
+                        return "IdJuego01".equals(event.aggregateRootId()) && "Id01".equals(event.getJugadorPrincipal().value());
+                    }
                 })
-                .expectNextMatches(eventoDomio->{
-                    var evento = (JugadorAgregado) eventoDomio;
-                    return "jugador-001".equals(evento.getJugadorId().value())
-                            && "Prueba #1".equals(evento.getAlias());
+
+                .expectNextMatches(domainEvent -> {
+                    var event = (JugadorAgregado) domainEvent;
+                    assert event.getMazo().value().cantidad().equals(2);
+                    return event.getJuegoId().value().equals("jugador01") && event.getAlias().equals("Juanes");
                 })
-                .expectNextMatches(eventoDomio->{
-                    var evento = (JugadorAgregado) eventoDomio;
-                    return "jugador-002".equals(evento.getJugadorId().value())
-                            && "Prueba #2".equals(evento.getAlias());
+
+                .expectNextMatches(domainEvent -> {
+                    var event = (JugadorAgregado) domainEvent;
+                    assert event.getMazo().value().cantidad().equals(2);
+                    return event.getJuegoId().value().equals("jugador02") && event.getAlias().equals("Madona");
                 })
                 .expectComplete()
                 .verify();
-
     }
 
-    private Flux<CartaMaestra> cartasJuego() {
+    private Flux<CartaMaestra> history() {
 
-        return Flux.just(
-                new CartaMaestra("carta-001","prueba #1"),
-                new CartaMaestra("carta-002","prueba #2"),
-                new CartaMaestra("carta-003","prueba #3"),
-                new CartaMaestra("carta-004","prueba #5"),
-                new CartaMaestra("carta-006","prueba #6"),
-                new CartaMaestra("carta-007","prueba #7"),
-                new CartaMaestra("carta-008","prueba #8"),
-                new CartaMaestra("carta-009","prueba #9"),
-                new CartaMaestra("carta-010","prueba #10")
+        return  Flux.just(
+
+                new CartaMaestra("1","tarjeta1"),
+                new CartaMaestra("2","tarjeta2"),
+                new CartaMaestra("3","tarjeta3"),
+                new CartaMaestra("4","tarjeta4"),
+                new CartaMaestra("5","tarjeta5"),
+                new CartaMaestra("6","tarjeta6")
 
         );
     }
-
 }

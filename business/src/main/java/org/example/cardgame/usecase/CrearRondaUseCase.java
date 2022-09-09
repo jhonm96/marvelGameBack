@@ -28,10 +28,12 @@ public class CrearRondaUseCase extends UseCaseForCommand<CrearRondaCommand> {
             .flatMapIterable(event -> {
               var juego = Juego.from(JuegoId.of(comando.getJuegoId()), event);
               var jugadores = comando.getJugadores().stream()
-                  .map(JugadorId::of)
-                  .collect(Collectors.toSet());
-              var ronda = new Ronda(1, jugadores);
-              juego.crearRonda(ronda, comando.getTiempo());
+                  .map(JugadorId::of).collect(Collectors.toSet());
+
+              if (juego.ronda() == null) {
+                juego.crearRonda(new Ronda(1,jugadores), comando.getTiempo());
+              }
+                  juego.ronda().incrementarRonda(jugadores);
 
               return juego.getUncommittedChanges();
 
