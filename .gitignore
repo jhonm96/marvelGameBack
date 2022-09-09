@@ -1,4 +1,4 @@
-/.idea/
+../.idea/
 marvelgame.iml
 /domain/domain.iml
 /business/business.iml
@@ -6,3 +6,5 @@ marvelgame.iml
 /domain/target/
 /application/target/
 /business/target/
+/application/app-proxy/target/
+/application/app-service/target/

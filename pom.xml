@@ -12,7 +12,16 @@
         <module>domain</module>
         <module>business</module>
         <module>application/app-service</module>
+        <module>application/app-proxy</module>
     </modules>
+
+    <dependencies>
+        <dependency>
+            <groupId>co.com.sofka</groupId>
+            <artifactId>business</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+    </dependencies>
 
     <properties>
         <springboot.version>2.5.4</springboot.version>

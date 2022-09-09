@@ -5,26 +5,31 @@ import org.example.cardgame.Juego;
 import org.example.cardgame.command.IniciarJuegoCommand;
 import org.example.cardgame.gateway.JuegoDomainEventRepository;
 import org.example.cardgame.values.JuegoId;
+import org.example.cardgame.values.Ronda;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class IniciarJuegoUseCase extends UseCaseForCommand<IniciarJuegoCommand> {
 
-    private final JuegoDomainEventRepository repository;
+  private final JuegoDomainEventRepository repository;
 
-    public IniciarJuegoUseCase(JuegoDomainEventRepository repository){
-        this.repository = repository;
-    }
+  public IniciarJuegoUseCase(JuegoDomainEventRepository repository) {
+    this.repository = repository;
+  }
 
-    @Override
-    public Flux<DomainEvent> apply(Mono<IniciarJuegoCommand> iniciarJuegoCommand) {
-        return iniciarJuegoCommand.flatMapMany((command) -> repository
-                .obtenerEventosPor(command.getJuegoId())
-                .collectList()
-                .flatMapIterable(events -> {
-                    var juego = Juego.from(JuegoId.of(command.getJuegoId()), events);
-                    juego.crearTablero();
-                    return juego.getUncommittedChanges();
-                }));
-    }
+  @Override
+  public Flux<DomainEvent> apply(Mono<IniciarJuegoCommand> iniciarJuegoCommand) {
+    return iniciarJuegoCommand.flatMapMany((command) -> repository
+        .obtenerEventosPor(command.getJuegoId())
+        .collectList()
+        .flatMapIterable(events -> {
+          var juego = Juego.from(JuegoId.of(command.getJuegoId()), events);
+          juego.crearTablero();
+
+          var playersId=juego.jugadores().keySet();
+          var newRonda = new Ronda(1,playersId);
+          juego.crearRonda(newRonda,80);
+          return juego.getUncommittedChanges();
+        }));
+  }
 }

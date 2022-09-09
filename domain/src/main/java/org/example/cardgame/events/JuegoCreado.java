@@ -10,6 +10,8 @@ public class JuegoCreado extends DomainEvent {
         this.jugadorPrincipal = jugadorPrincipal;
     }
 
+
+
     public JugadorId getJugadorPrincipal() {
         return jugadorPrincipal;
     }

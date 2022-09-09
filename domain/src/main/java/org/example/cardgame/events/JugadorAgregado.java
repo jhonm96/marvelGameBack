@@ -16,7 +16,7 @@ public class JugadorAgregado extends DomainEvent {
         this.mazo = mazo;
     }
 
-    public JugadorId getJuegoId() {
+    public JugadorId getJugadorId() {
         return identity;
     }
 

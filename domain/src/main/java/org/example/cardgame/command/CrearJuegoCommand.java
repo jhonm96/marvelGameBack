@@ -2,12 +2,20 @@ package org.example.cardgame.command;
 
 import co.com.sofka.domain.generic.Command;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class CrearJuegoCommand extends Command {
     private String juegoId;
     private Map<String, String> jugadores;
     private String jugadorPrincipalId;
+
+    public CrearJuegoCommand() {
+    }
+
+    public CrearJuegoCommand(String value, HashMap<String, String> jugadores, String s) {
+    }
+
 
     public void setJugadores(Map<String, String> jugadores) {
         this.jugadores = jugadores;
