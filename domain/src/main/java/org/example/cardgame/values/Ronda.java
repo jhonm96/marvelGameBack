@@ -36,7 +36,6 @@ public class Ronda implements ValueObject<Ronda.Props> {
     }
 
     public Ronda incrementarRonda(Set<JugadorId> jugadores){
-        System.out.println("nueva ronda");
         return new Ronda(this.numero + 1, jugadores, false);
     }
     @Override

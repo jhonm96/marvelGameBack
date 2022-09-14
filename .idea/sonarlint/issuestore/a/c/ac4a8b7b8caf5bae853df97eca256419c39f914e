@@ -1,0 +1,17 @@
+
+a
+java:S11920"FDefine a constant instead of duplicating this literal "fecha" 3 times.(é»Öþÿÿÿÿ
+b
+java:S1192="GDefine a constant instead of duplicating this literal "cartas" 3 times.(ÐÏÂÿûÿÿÿÿ
+>
+java:S16042"(Make this anonymous inner class a lambda(›Ú¾Ÿ
+M
+java:S1135$"2Complete the task associated to this TODO comment.(ªóº¼ûÿÿÿÿ
+N
+java:S1611_"3Remove the parentheses around the "model" parameter(¡´Ç ûÿÿÿÿ
+Z
+java:S1128"DRemove this unused import 'co.com.sofka.domain.generic.DomainEvent'.(Í–’ý
+Z
+java:S1128"DRemove this unused import 'org.example.cardgame.events.JuegoCreado'.(óÄÃÊ
+I
+java:S1128".Remove this unused import 'java.util.HashMap'.(™˜”€ùÿÿÿÿ

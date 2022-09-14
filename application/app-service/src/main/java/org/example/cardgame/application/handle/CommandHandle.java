@@ -3,7 +3,13 @@ package org.example.cardgame.application.handle;
 
 
 import org.example.cardgame.command.CrearJuegoCommand;
+import org.example.cardgame.command.IniciarJuegoCommand;
+import org.example.cardgame.command.IniciarRondaCommand;
+import org.example.cardgame.command.PonerCartaEnTablero;
 import org.example.cardgame.usecase.CrearJuegoUseCase;
+import org.example.cardgame.usecase.IniciarJuegoUseCase;
+import org.example.cardgame.usecase.IniciarRondaUseCase;
+import org.example.cardgame.usecase.PonerCartaEnTableroUseCase;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.MediaType;
@@ -36,6 +42,45 @@ public class CommandHandle {
 
         );
     }
+
+    @Bean
+    public RouterFunction<ServerResponse> iniciar(IniciarJuegoUseCase usecase) {
+        return route(
+                POST("/juego/iniciar").and(accept(MediaType.APPLICATION_JSON)),
+                request -> usecase.andThen(integrationHandle)
+                        .apply(request.bodyToMono(IniciarJuegoCommand.class))
+                        .then(ServerResponse.ok().build())
+
+        );
+    }
+
+
+
+    @Bean
+    public RouterFunction<ServerResponse> poner(PonerCartaEnTableroUseCase usecase) {
+        return route(
+                POST("/juego/poner").and(accept(MediaType.APPLICATION_JSON)),
+                request -> usecase.andThen(integrationHandle)
+                        .apply(request.bodyToMono(PonerCartaEnTablero.class))
+                        .then(ServerResponse.ok().build())
+
+        );
+    }
+
+
+    @Bean
+    public RouterFunction<ServerResponse> iniciarRonda(IniciarRondaUseCase usecase) {
+        return route(
+                POST("/juego/ronda/iniciar").and(accept(MediaType.APPLICATION_JSON)),
+                request -> usecase.andThen(integrationHandle)
+                        .apply(request.bodyToMono(IniciarRondaCommand.class))
+                        .then(ServerResponse.ok().build())
+
+        );
+    }
+
+
+
 
 
 }

@@ -68,5 +68,6 @@ public class Carta implements ValueObject<Carta.Props>, Comparable<Carta> {
         Integer poder();
         Boolean estaOculta();
         Boolean estaHabilitada();
+
     }
 }

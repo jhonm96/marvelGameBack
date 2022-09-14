@@ -13,8 +13,8 @@ public class JuegoEventChange extends EventChange {
             juego.jugadorPrincipal = event.getJugadorPrincipal();
         });
         apply((JugadorAgregado event) -> {
-            juego.jugadores.put(event.getJugadorId(),
-                    new Jugador(event.getJugadorId(), event.getAlias(), event.getMazo())
+            juego.jugadores.put(event.getJuegoId(),
+                    new Jugador(event.getJuegoId(), event.getAlias(), event.getMazo())
             );
         });
 
@@ -36,7 +36,7 @@ public class JuegoEventChange extends EventChange {
 
         apply((CartaPuestaEnTablero event) -> {
             if(Boolean.FALSE.equals(juego.tablero.estaHabilitado())){
-               throw new IllegalArgumentException("No se puedo apostar porque el tablero no esta habilitado");
+                throw new IllegalArgumentException("No se puedo apostar porque el tablero no esta habilitado");
             }
             juego.tablero.adicionarPartida(event.getJugadorId(), event.getCarta());
         });
@@ -50,6 +50,9 @@ public class JuegoEventChange extends EventChange {
         });
 
         apply((RondaIniciada event) -> {
+            if(Objects.isNull(juego.ronda)){
+                throw new IllegalArgumentException("Debe existir una runda creada");
+            }
             juego.ronda = juego.ronda.iniciarRonda();
             juego.tablero.habilitarApuesta();
         });
