@@ -18,8 +18,6 @@ cartas.csv,0\5\05e710748687f978c63862cd7fe36fbbef7064a5
 dapplication/app-proxy/src/main/java/org/example/cardgame/websocket/generic/DeserializeException.java,a\1\a17cc92c76d8d27a4a1058b883d047600855ff38
 m
 =domain/src/main/java/org/example/cardgame/values/JuegoId.java,e\0\e0d74d219823a03cb7e27d53f4abd1e7561ac1c8
-S
-#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
 G
 data/db/WiredTiger.lock,8\a\8a36b790708c510f3816e097f94d208796c8d97e
 ~
@@ -36,8 +34,6 @@ x
 Hdomain/src/main/java/org/example/cardgame/command/CrearJuegoCommand.java,4\e\4e4d2043515a7fc159790aa48f5c8ead261c00b8
 ê
 `application/app-service/src/main/java/org/example/cardgame/application/handle/CommandHandle.java,8\8\88a34ab616601c8986a70371e597a263a342fedf
-§
-tapplication/app-service/src/main/java/org/example/cardgame/application/handle/materialize/GameMaterializeHandle.java,d\8\d88fdddd3a12e2bd8468e87fa78ce8c4266cf019
 z
 Jbusiness/src/main/java/org/example/cardgame/usecase/CrearJuegoUseCase.java,9\2\92831afceb867d8ea79bd0333a3fcbece6dd9732
 k
