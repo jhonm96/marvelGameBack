@@ -55,6 +55,8 @@ public class MazoMaterializeHandle {
                 documentCarta.put("cartaId", carta.value().cartaId().value());
                 documentCarta.put("estaHabilitada", carta.value().estaHabilitada());
                 documentCarta.put("estaOculta", carta.value().estaOculta());
+                documentCarta.put("nombre", carta.value().nombre());
+                documentCarta.put("uri", carta.value().uri());
                 cartas.add(documentCarta);
             }
         });
@@ -88,6 +90,8 @@ public class MazoMaterializeHandle {
             c.setEstaHabilitada(carta.value().estaHabilitada());
             c.setEstaOculta(carta.value().estaOculta());
             c.setPoder(carta.value().poder());
+            c.setNombre(carta.value().nombre());
+            c.setUri(carta.value().uri());
             return c;
         }).collect(Collectors.toSet());
 

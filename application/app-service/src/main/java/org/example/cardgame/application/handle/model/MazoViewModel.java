@@ -29,9 +29,19 @@ public class MazoViewModel {
         private  Boolean estaOculta;
         private  Boolean estaHabilitada;
         private  Integer poder;
+        private  String nombre;
+        private  String uri;
 
         public String getCartaId() {
             return cartaId;
+        }
+
+        public String getNombre() {
+            return nombre;
+        }
+
+        public String getUri() {
+            return uri;
         }
 
         public void setCartaId(String cartaId) {
@@ -52,6 +62,14 @@ public class MazoViewModel {
 
         public void setPoder(Integer poder) {
             this.poder = poder;
+        }
+
+        public void setNombre(String nombre) {
+            this.nombre = nombre;
+        }
+
+        public void setUri(String uri) {
+            this.uri = uri;
         }
 
         public Integer getPoder() {

@@ -26,17 +26,7 @@ u
 Edomain/src/main/java/org/example/cardgame/events/JugadorAgregado.java,4\c\4ce1f890919a3e85982565c21f87b15da1350ad5
 k
 ;domain/src/main/java/org/example/cardgame/values/Ronda.java,b\a\ba3292ddedcb67fe3a98265adb3579b23cfcacbd
-é
-^application/app-service/src/main/java/org/example/cardgame/application/handle/QueryHandle.java,5\a\5a58b6fef202d176ffe407582ba130604469bf12
 †
 papplication/app-service/src/main/java/org/example/cardgame/application/handle/usecase/CrearRondaEventHandle.java,6\a\6a3a37de1931e0cb2ca7dce4e1c3241b1e4b4747
 x
 Hdomain/src/main/java/org/example/cardgame/command/CrearJuegoCommand.java,4\e\4e4d2043515a7fc159790aa48f5c8ead261c00b8
-ê
-`application/app-service/src/main/java/org/example/cardgame/application/handle/CommandHandle.java,8\8\88a34ab616601c8986a70371e597a263a342fedf
-z
-Jbusiness/src/main/java/org/example/cardgame/usecase/CrearJuegoUseCase.java,9\2\92831afceb867d8ea79bd0333a3fcbece6dd9732
-k
-;domain/src/main/java/org/example/cardgame/values/Carta.java,a\7\a7f6c2680593fc835eaba7a086b20b0ef2a57330
-§
-tapplication/app-service/src/main/java/org/example/cardgame/application/handle/materialize/MazoMaterializeHandle.java,a\c\ac4a8b7b8caf5bae853df97eca256419c39f914e
