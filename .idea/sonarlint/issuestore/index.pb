@@ -1,8 +1,6 @@
 
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
-ƒ
-Sbusiness/src/main/java/org/example/cardgame/usecase/PonerCartaEnTableroUseCase.java,c\e\ce580712e531b7de4083d9a7abdd3322536ff654
 C
 docker-compose.yaml,e\f\ef8def03dc8f162799089e9b5f4321201c8810d5
 €
@@ -11,9 +9,6 @@ Pbusiness/src/test/java/org/example/cardgame/usecase/IniciarJuegoUseCaseTest.jav
 Wbusiness/src/test/java/org/example/cardgame/usecase/PonerCartaEnTableroUseCaseTest.java,7\f\7f4fa2bfe4635d9ca887ca4eb1a1199dea79b5ae
 †
 Vapplication/app-service/src/main/java/org/example/cardgame/application/AppService.java,1\3\1327d869a6de2c679126dc2caba4f51c0e9115bc
-:
-
-cartas.csv,0\5\05e710748687f978c63862cd7fe36fbbef7064a5
 ”
 dapplication/app-proxy/src/main/java/org/example/cardgame/websocket/generic/DeserializeException.java,a\1\a17cc92c76d8d27a4a1058b883d047600855ff38
 m
@@ -30,3 +25,15 @@ k
 papplication/app-service/src/main/java/org/example/cardgame/application/handle/usecase/CrearRondaEventHandle.java,6\a\6a3a37de1931e0cb2ca7dce4e1c3241b1e4b4747
 x
 Hdomain/src/main/java/org/example/cardgame/command/CrearJuegoCommand.java,4\e\4e4d2043515a7fc159790aa48f5c8ead261c00b8
+x
+Hdomain/src/main/java/org/example/cardgame/command/CrearRondaCommand.java,1\a\1aac91f702138abb85a8aa81979095916d5799e7
+u
+Edomain/src/main/java/org/example/cardgame/events/JuegoFinalizado.java,6\4\647202d9ba5396704500021812645e8673a0e6d5
+q
+Adomain/src/main/java/org/example/cardgame/events/JuegoCreado.java,e\f\ef3f43bdedcf80185f79fca6b1dc006beddd6aba
+9
+	cards.txt,5\b\5bfef30491a7a3a169bfc0814e6e80a0fcdb0463
+t
+Ddomain/src/main/java/org/example/cardgame/events/JuegoEliminado.java,9\2\92d6ba4fdc9e285d8dfc5b940a95fa713690f668
+¤
+tapplication/app-service/src/main/java/org/example/cardgame/application/handle/materialize/MazoMaterializeHandle.java,a\c\ac4a8b7b8caf5bae853df97eca256419c39f914e

@@ -17,6 +17,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import static org.springframework.web.reactive.function.server.RequestPredicates.GET;
+import static org.springframework.web.servlet.function.RequestPredicates.DELETE;
 
 @Configuration
 public class QueryHandle {
@@ -25,6 +26,18 @@ public class QueryHandle {
     public QueryHandle(ReactiveMongoTemplate template) {
         this.template = template;
     }
+
+/*    @Bean
+    public RouterFunction<ServerResponse> eliminarJuego() {
+        return RouterFunctions.route(
+                DELETE("/juego/listar/{uid}"),
+                request -> template.findAndRemove(filterByUId(request.pathVariable("uid")), JuegoListViewModel.class, "gameview")
+                        .flatMap(list -> ServerResponse.ok()
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .bodyValue(list)));
+        );
+    }*/
+
 
     @Bean
     public RouterFunction<ServerResponse> listarJuego() {
